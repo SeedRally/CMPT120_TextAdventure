@@ -1,7 +1,12 @@
 <!DOCTYPE HTML>
 <html>
+  <!-- Michael G. Rodecker
+       September 26, 2012
+       Introduction to Programming
+       Project 2 - Game v0.2 -->
   <head>
-      <meta charset = "utf-8">
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+      <meta name="author" content="Michael G. Rodecker" />
       <title>Apocalypse! on the Hudson</title>
       <style>
           body     {background: black;}
@@ -14,13 +19,49 @@
           
       </style>
       <script type="text/JavaScript">
+     
+    function btn_direction_click (direction) {
+        if (direction === North) {
+           var msg = "You see nothing but water and trees.";
+           updateText(msg);
+        } else {
+            if (direction === South) {
+               var msg = "You see nothing but water and trees, however, between two trees you see what appears to be a group of people.";
+               updateText(msg);
+        }     else {
+                if (direction === East) {
+                   var msg = "To go this way you will have to swim across the Hudson or find another way.";
+                   updateText(msg);
+              }   else {
+                     if (direction === West) {
+                        var msg = "There is a big forested hill.";
+                        updateText(msg);
+                  } else {
+                      alert("this should never happen bro.");
+                  }
+                     
+                }
+        }
+        
+        
+        
+        } 
+      function updateScore (score) {
+         var ta = document.getElementbyID("taScore");
+          ta.value = score + ta.value;
+      }
+    }
+     
+     // function updateScore (score) {
+     //    var ta = document.getElementbyID("taScore");
+     //     ta.value = score + ta.value;
+     // }
       
       function north_btn() {
       
         var message = "You see nothing but water and trees.";
         alert(message);
       }
-      
       function south_btn() {
       
         var message = "You see nothing but water and trees, however, between two trees you see what appears to be a group of people.";
@@ -52,7 +93,7 @@
       <br>
       
 
-      <textarea rows="10" cols="50">You and Booch have been friends ever since the chemical malfunctions when you both were inflicted with Canadian Liver Virus. Luckily for you, the doctors gave you the last vile of medicine before criminals ransacked Saint Francis' Hospital. You managed to escape with Booch, dragging him by his small and pointy feet and are now nestled on the bank of the Hudson River between two hills. 
+      <textarea id="taScore" rows="10" cols="40">After escaping the hospital, you and Booch are on the East side of the Hudson River. There is a small fox nearby.  
       </textarea>
       
       <br>
@@ -72,7 +113,14 @@
      
       <br>
       <br>
-     <p class="fullname">
+     
+      <p>
+          Character Score: 
+          <meter min="0" low="30" high="80" max="100" value="15"></meter>
+      
+      </p>
+    
+      <p class="fullname">
         Michael G. Rodecker
         <br>
         <a href="mailto:michael.rodecker1@marist.edu">Send me an email!</a> 
